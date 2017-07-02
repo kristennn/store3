@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
         product_list.quantity = cart_item.quantity
         product_list.save
       end
-
+      current_cart.clean!
       redirect_to order_path(@order)
     else
       render "carts/checkout"
