@@ -25,13 +25,15 @@
             </td>
             <td><%= link_to(cart_item.product.title, product_path(cart_item.product)) %></td>
             <td><%= cart_item.product.price %></td>
-            <td><%= cart_item.product.quantity %></td>
+            <td><%= cart_item.quantity %></td>
             <td><%= link_to("删除", cart_item_path(cart_item.product_id), method: :delete, data: {confirm: "你确定要删除此商品吗？"}) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <span class="pull-right">总计 XXX RMB</span>
+    <span class="pull-right">
+      总计 <%= render_cart_total_price(current_cart) %> RMB
+    </span>
   </div>
 </div>
 <br>
