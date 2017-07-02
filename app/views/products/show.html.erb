@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-6">
+    <h2><%= @product.title %></h2>
+    <p><%= @product.description %></p>
+    <br><br><br><br>
+    <p>数量：<%= @product.quantity %></p>
+    <p>￥：<%= @product.price %></p>
+  </div>
+</div>
+
+<%= link_to("加入购物车", "#", method: :post, class: "btn btn-lg btn-danger pull-right") %>

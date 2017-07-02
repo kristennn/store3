@@ -1,0 +1,7 @@
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-3">
+      <%= link_to(product.title, product_path(product)) %> ￥ <%= product.price %>
+    </div>
+  <% end %>
+</div>
