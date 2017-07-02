@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :product_lists
   belongs_to :user
+  validates_presence_of :billing_name, :billing_address, :shipping_name, :shipping_address
 
   def pay!
     self.update_columns(is_paid: :true)
