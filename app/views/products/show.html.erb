@@ -16,5 +16,8 @@
     <p>￥：<%= @product.price %></p>
   </div>
 </div>
-
-<%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger pull-right") %>
+<% if @product.quantity > 0 %>
+  <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger pull-right") %>
+<% else %>
+  <span class="pull-right"> 商品已销售一空，无法购买 </span>
+<% end %>

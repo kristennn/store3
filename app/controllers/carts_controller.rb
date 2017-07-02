@@ -6,4 +6,8 @@ class CartsController < ApplicationController
     redirect_to carts_path, alert: "已清空购物车"
   end
 
+  def checkout
+    @order = Order.new
+  end
+
 end
