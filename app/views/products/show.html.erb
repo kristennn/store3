@@ -6,7 +6,7 @@
       <% else %>
         <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
       <% end %>
-    <% end %> 
+    <% end %>
   </div>
   <div class="col-md-6">
     <h2><%= @product.title %></h2>
@@ -21,3 +21,10 @@
 <% else %>
   <span class="pull-right"> 商品已销售一空，无法购买 </span>
 <% end %>
+
+<div class="review-input">
+  <%= simple_form_for @review, url: product_reviews_path(@product) do |f| %>
+    <%= f.input :content, label: "添加评论" %>
+    <%= f.submit "提交", :disable_with => "提交中" %>
+  <% end %>
+</div>
