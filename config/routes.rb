@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products do
     resources :reviews
+    collection do
+      get :search
+    end
     member do
       post :add_to_cart
     end

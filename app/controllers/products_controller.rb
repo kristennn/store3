@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except:[:index, :show, :add_to_cart]
+  before_action :validate_search_key, only: [:search]
 
   def index
     @products = Product.all
@@ -18,6 +20,22 @@ class ProductsController < ApplicationController
       flash[:warning] = "此商品已在购物车"
     end
     redirect_to product_path(@product)
+  end
+
+  def search
+    if @query_string.present?
+      @products = search_params
+    end
+  end
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+  end
+
+  def search_params
+    Product.ransack({:title_or_description_cont => @query_string}).result(distinct: true)
   end
 
 end
