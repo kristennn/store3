@@ -4,10 +4,21 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    case params[:category]
+    when "餐"
+      @products = Product.all.where(:category => "餐")
+    when "茶"
+      @products = Product.all.where(:category => "茶")
+    when "酒"
+      @products = Product.all.where(:category => "酒")
+    when "香"
+      @products = Product.all.where(:category => "香")
+    when "花"
+      @products = Product.all.where(:category => "花")
+    end
   end
 
   def show
-    @product = Product.find(params[:id])
     @review = Review.new
   end
 
