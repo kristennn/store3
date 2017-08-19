@@ -3,6 +3,7 @@
   <%= f.input :description %>
   <%= f.input :quantity %>
   <%= f.input :price %>
+  <%= f.select(:category, ["餐", "茶", "酒", "香", "花"]) %>
   <%= f.input :image, as: :file %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

@@ -1,3 +1,13 @@
+<div class="category-bar">
+  <div class="productCategory-item">
+    <%= link_to "茶", products_path(category: "茶") %>
+    <%= link_to "酒", products_path(category: "酒") %>
+    <%= link_to "香", products_path(category: "香") %>
+    <%= link_to "花", products_path(category: "花") %>
+    <%= link_to "餐", products_path(category: "餐") %>
+  </div>
+</div>
+
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-3">
