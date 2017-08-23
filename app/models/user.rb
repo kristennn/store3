@@ -9,4 +9,7 @@ class User < ApplicationRecord
     is_admin
   end
 
+  has_many :favorites
+  has_many :products, through: :favoritesm, source: :product
+
 end
