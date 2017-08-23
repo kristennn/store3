@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
     member do
       post :add_to_cart
+      post :join_favorite
+      post :quit_favorite
     end
   end
   namespace :admin do

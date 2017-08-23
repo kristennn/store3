@@ -1,0 +1,5 @@
+<% if product.is_favorited?(current_user) %>
+  <%= link_to("", quit_favorite_product_path), method: :post, class: "fa fa-heart" %>
+<% else %>
+  <%= link_to("", join_favorite_product_path), method: :post, class: "fa fa-heart" %>
+<% end %>

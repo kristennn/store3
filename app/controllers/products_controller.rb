@@ -39,6 +39,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def join_favorite
+    @product = Product.find(params[:id])
+    if !@product.is_favorited?
+      @product.join_favorite!(current_user)
+    else
+      flash[:warning] = "您已加入收藏"
+    end
+  end
+
+  def quit_favorite
+    @product = Product.find(params[:id])
+    if @product.is_favorited?
+      @product.quit_favorite!(current_user)
+    else
+      flash[:warning] = "您没有加入收藏，怎么删除？"
+    end
+  end
+
   protected
 
   def validate_search_key
