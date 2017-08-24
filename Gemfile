@@ -52,7 +52,7 @@ end
   gem 'aasm'
   gem 'rails-erd', require: false, group: :development
   gem 'ransack'
-  
+  gem 'font_awesome_rails'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 
   def show
     @review = Review.new
+    @product = Product.find(params[:id])
   end
 
   def add_to_cart
@@ -41,20 +42,14 @@ class ProductsController < ApplicationController
 
   def join_favorite
     @product = Product.find(params[:id])
-    if !@product.is_favorited?
-      @product.join_favorite!(current_user)
-    else
-      flash[:warning] = "您已加入收藏"
-    end
+    @product.join_favorite!(current_user)
+    flash[:warning] = "已加入收藏"
   end
 
   def quit_favorite
     @product = Product.find(params[:id])
-    if @product.is_favorited?
-      @product.quit_favorite!(current_user)
-    else
-      flash[:warning] = "您没有加入收藏，怎么删除？"
-    end
+    @product.quit_favorite!(current_user)
+    flash[:warning] = "已取消收藏"
   end
 
   protected
