@@ -44,12 +44,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.join_favorite!(current_user)
     flash[:warning] = "已加入收藏"
+
+    redirect_to product_path(@product)
   end
 
   def quit_favorite
     @product = Product.find(params[:id])
     @product.quit_favorite!(current_user)
     flash[:warning] = "已取消收藏"
+
+    redirect_to product_path(@product)
   end
 
   protected
